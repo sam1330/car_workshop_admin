@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('title', 'Product List')
-@section('content-header', 'Product List')
+@section('title', 'Lista de productos')
+@section('content-header', 'Lista de productos')
 @section('content-actions')
-<a href="{{route('products.create')}}" class="btn btn-primary">Create Product</a>
+<a href="{{route('products.create')}}" class="btn btn-primary">Crear Producto</a>
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
@@ -15,15 +15,15 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Barcode</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th>Actions</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Codigo</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Creado</th>
+                    <th>Actualizado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@
                     <td>{{$product->quantity}}</td>
                     <td>
                         <span
-                            class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{$product->status ? 'Active' : 'Inactive'}}</span>
+                            class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{$product->status ? 'Activo' : 'Inactivo'}}</span>
                     </td>
                     <td>{{$product->created_at}}</td>
                     <td>{{$product->updated_at}}</td>
@@ -71,11 +71,11 @@
                 })
 
                 swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "Do you really want to delete this product?",
+                title: 'Estas seguro?',
+                text: "Seguro que desea eliminar producto?",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
+                confirmButtonText: 'Si, eliminar!',
                 cancelButtonText: 'No',
                 reverseButtons: true
                 }).then((result) => {

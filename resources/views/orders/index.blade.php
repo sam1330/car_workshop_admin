@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('title', 'Orders List')
-@section('content-header', 'Order List')
+@section('title', 'Ordenes')
+@section('content-header', 'Ordenes')
 @section('content-actions')
-    <a href="{{route('cart.index')}}" class="btn btn-primary">Open POS</a>
+    <a href="{{route('cart.index')}}" class="btn btn-primary">Abrir POS</a>
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
                             <input type="date" name="end_date" class="form-control" value="{{request('end_date')}}" />
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-outline-primary" type="submit">Submit</button>
+                            <button class="btn btn-outline-primary" type="submit">Enviar</button>
                         </div>
                     </div>
                 </form>
@@ -31,12 +31,12 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Customer Name</th>
+                    <th>Cliente</th>
                     <th>Total</th>
-                    <th>Received Amount</th>
-                    <th>Status</th>
-                    <th>To Pay</th>
-                    <th>Created At</th>
+                    <th>Monto recibido</th>
+                    <th>Estado</th>
+                    <th>Balance</th>
+                    <th>Creado</th>
                 </tr>
             </thead>
             <tbody>

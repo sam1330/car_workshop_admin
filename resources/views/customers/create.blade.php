@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Create Customer')
-@section('content-header', 'Create Customer')
+@section('title', 'Crear Cliente')
+@section('content-header', 'Crear Cliente')
 
 @section('content')
 
@@ -12,10 +12,10 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="first_name">First Name</label>
+                    <label for="first_name">Nombre</label>
                     <input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror"
                            id="first_name"
-                           placeholder="First Name" value="{{ old('first_name') }}">
+                           placeholder="Nombre" value="{{ old('first_name') }}">
                     @error('first_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -24,10 +24,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="last_name">Last Name</label>
+                    <label for="last_name">Apellido</label>
                     <input type="text" name="last_name" class="form-control @error('last_name') is-invalid @enderror"
                            id="last_name"
-                           placeholder="Last Name" value="{{ old('last_name') }}">
+                           placeholder="Apellido" value="{{ old('last_name') }}">
                     @error('last_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,9 +47,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone</label>
+                    <label for="phone">Teléfono</label>
                     <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone"
-                           placeholder="Phone" value="{{ old('phone') }}">
+                           placeholder="Teléfono" value="{{ old('phone') }}">
                     @error('phone')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -58,10 +58,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Address</label>
+                    <label for="address">Dirección</label>
                     <input type="text" name="address" class="form-control @error('address') is-invalid @enderror"
                            id="address"
-                           placeholder="Address" value="{{ old('address') }}">
+                           placeholder="Dirección" value="{{ old('address') }}">
                     @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                     <label for="avatar">Avatar</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="avatar" id="avatar">
-                        <label class="custom-file-label" for="avatar">Choose file</label>
+                        <label class="custom-file-label" for="avatar">Subir Imagen</label>
                     </div>
                     @error('avatar')
                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                 </div>
 
 
-                <button class="btn btn-primary" type="submit">Create</button>
+                <button class="btn btn-primary" type="submit">Crear</button>
             </form>
         </div>
     </div>

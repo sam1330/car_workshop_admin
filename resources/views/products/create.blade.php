@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Create Product')
-@section('content-header', 'Create Product')
+@section('title', 'Crear Producto')
+@section('content-header', 'Crear Producto')
 
 @section('content')
 
@@ -12,9 +12,9 @@
             @csrf
 
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nombre</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
-                    placeholder="Name" value="{{ old('name') }}">
+                    placeholder="Nombre" value="{{ old('name') }}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -24,9 +24,9 @@
 
 
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Descripción</label>
                 <textarea name="description" class="form-control @error('description') is-invalid @enderror"
-                    id="description" placeholder="description">{{ old('description') }}</textarea>
+                    id="description" placeholder="descripción">{{ old('description') }}</textarea>
                 @error('description')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -35,10 +35,10 @@
             </div>
 
             <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">Imagen</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" name="image" id="image">
-                    <label class="custom-file-label" for="image">Choose file</label>
+                    <label class="custom-file-label" for="image">Subir archivo</label>
                 </div>
                 @error('image')
                 <span class="invalid-feedback" role="alert">
@@ -48,9 +48,9 @@
             </div>
 
             <div class="form-group">
-                <label for="barcode">Barcode</label>
+                <label for="barcode">Código</label>
                 <input type="text" name="barcode" class="form-control @error('barcode') is-invalid @enderror"
-                    id="barcode" placeholder="barcode" value="{{ old('barcode') }}">
+                    id="barcode" placeholder="código" value="{{ old('barcode') }}">
                 @error('barcode')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -59,9 +59,9 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Precio</label>
                 <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price"
-                    placeholder="price" value="{{ old('price') }}">
+                    placeholder="precio" value="{{ old('price') }}">
                 @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -70,9 +70,9 @@
             </div>
 
             <div class="form-group">
-                <label for="quantity">Quantity</label>
+                <label for="quantity">Existencia</label>
                 <input type="text" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
-                    id="quantity" placeholder="Quantity" value="{{ old('quantity', 1) }}">
+                    id="quantity" placeholder="existencia" value="{{ old('quantity', 1) }}">
                 @error('quantity')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -81,10 +81,10 @@
             </div>
 
             <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status">Estado</label>
                 <select name="status" class="form-control @error('status') is-invalid @enderror" id="status">
-                    <option value="1" {{ old('status') === 1 ? 'selected' : ''}}>Active</option>
-                    <option value="0" {{ old('status') === 0 ? 'selected' : ''}}>Inactive</option>
+                    <option value="1" {{ old('status') === 1 ? 'selected' : ''}}>Activo</option>
+                    <option value="0" {{ old('status') === 0 ? 'selected' : ''}}>Inactivo</option>
                 </select>
                 @error('status')
                 <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                 @enderror
             </div>
 
-            <button class="btn btn-primary" type="submit">Create</button>
+            <button class="btn btn-primary" type="submit">Crear</button>
         </form>
     </div>
 </div>

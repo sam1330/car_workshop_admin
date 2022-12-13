@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Open POS')
+@section('title', 'Abrir POS')
 
 @section('content')
     <div id="cart"></div>

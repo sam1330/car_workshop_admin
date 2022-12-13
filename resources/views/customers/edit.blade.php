@@ -13,10 +13,10 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="first_name">First Name</label>
+                    <label for="first_name">Nombre</label>
                     <input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror"
                            id="first_name"
-                           placeholder="First Name" value="{{ old('first_name', $customer->first_name) }}">
+                           placeholder="Nombre" value="{{ old('first_name', $customer->first_name) }}">
                     @error('first_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -25,10 +25,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="last_name">Last Name</label>
+                    <label for="last_name">Apellido</label>
                     <input type="text" name="last_name" class="form-control @error('last_name') is-invalid @enderror"
                            id="last_name"
-                           placeholder="Last Name" value="{{ old('last_name', $customer->last_name) }}">
+                           placeholder="Apellido" value="{{ old('last_name', $customer->last_name) }}">
                     @error('last_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -48,9 +48,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone</label>
+                    <label for="phone">Teléfono</label>
                     <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone"
-                           placeholder="Phone" value="{{ old('phone', $customer->phone) }}">
+                           placeholder="Teléfono" value="{{ old('phone', $customer->phone) }}">
                     @error('phone')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -59,10 +59,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Address</label>
+                    <label for="address">Dirección</label>
                     <input type="text" name="address" class="form-control @error('address') is-invalid @enderror"
                            id="address"
-                           placeholder="Address" value="{{ old('address', $customer->address) }}">
+                           placeholder="Dirección" value="{{ old('address', $customer->address) }}">
                     @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -74,7 +74,7 @@
                     <label for="avatar">Avatar</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="avatar" id="avatar">
-                        <label class="custom-file-label" for="avatar">Choose file</label>
+                        <label class="custom-file-label" for="avatar">Subir imagen</label>
                     </div>
                     @error('avatar')
                     <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                 </div>
 
 
-                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-primary" type="submit">Actualizar</button>
             </form>
         </div>
     </div>

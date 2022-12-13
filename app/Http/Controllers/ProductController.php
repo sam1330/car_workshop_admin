@@ -64,9 +64,9 @@ class ProductController extends Controller
         ]);
 
         if (!$product) {
-            return redirect()->back()->with('error', 'Sorry, there a problem while creating product.');
+            return redirect()->back()->with('error', 'Perdón, Error creando el producto.');
         }
-        return redirect()->route('products.index')->with('success', 'Success, you product have been created.');
+        return redirect()->route('products.index')->with('success', 'Excelente, Tu producto se ha creado.');
     }
 
     /**
@@ -119,9 +119,9 @@ class ProductController extends Controller
         }
 
         if (!$product->save()) {
-            return redirect()->back()->with('error', 'Sorry, there\'re a problem while updating product.');
+            return redirect()->back()->with('error', 'Perdón, Error actualizando el producto.');
         }
-        return redirect()->route('products.index')->with('success', 'Success, your product have been updated.');
+        return redirect()->route('products.index')->with('success', 'Excelente, El producto se ha actualizado.');
     }
 
     /**

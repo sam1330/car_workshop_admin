@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('title', 'Customer List')
-@section('content-header', 'Customer List')
+@section('title', 'Clientes')
+@section('content-header', 'Clientes')
 @section('content-actions')
-    <a href="{{route('customers.create')}}" class="btn btn-primary">Add Customer</a>
+    <a href="{{route('customers.create')}}" class="btn btn-primary">Crear cliente</a>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
@@ -16,13 +16,13 @@
                 <tr>
                     <th>ID</th>
                     <th>Avatar</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Creado</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,11 +68,11 @@
                 })
 
                 swalWithBootstrapButtons.fire({
-                    title: 'Are you sure?',
-                    text: "Do you really want to delete this customer?",
+                    title: 'Estas seguro?',
+                    text: "seguro que desea eliminar cliente?",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'Yes, delete it!',
+                    confirmButtonText: 'Si, eliminar!',
                     cancelButtonText: 'No',
                     reverseButtons: true
                 }).then((result) => {
