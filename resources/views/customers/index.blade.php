@@ -3,16 +3,16 @@
 @section('title', 'Clientes')
 @section('content-header', 'Clientes')
 @section('content-actions')
-    <a href="{{route('customers.create')}}" class="btn btn-primary">Crear cliente</a>
+<a href="{{route('customers.create')}}" class="btn btn-primary">Crear cliente</a>
 @endsection
 @section('css')
-    <link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
 @endsection
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <table class="table">
-                <thead>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Avatar</th>
@@ -24,38 +24,40 @@
                     <th>Creado</th>
                     <th>Acciones</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 @foreach ($customers as $customer)
-                    <tr>
-                        <td>{{$customer->id}}</td>
-                        <td>
-                            <img width="50" src="{{$customer->getAvatarUrl()}}" alt="">
-                        </td>
-                        <td>{{$customer->first_name}}</td>
-                        <td>{{$customer->last_name}}</td>
-                        <td>{{$customer->email}}</td>
-                        <td>{{$customer->phone}}</td>
-                        <td>{{$customer->address}}</td>
-                        <td>{{$customer->created_at}}</td>
-                        <td>
-                            <a href="{{ route('customers.edit', $customer) }}" class="btn btn-primary"><i
-                                    class="fas fa-edit"></i></a>
-                            <button class="btn btn-danger btn-delete" data-url="{{route('customers.destroy', $customer)}}"><i
-                                    class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{$customer->id}}</td>
+                    <td>
+                        <img width="50" src="{{$customer->getAvatarUrl()}}" alt="">
+                    </td>
+                    <td>{{$customer->first_name}}</td>
+                    <td>{{$customer->last_name}}</td>
+                    <td>{{$customer->email}}</td>
+                    <td>{{$customer->phone}}</td>
+                    <td>{{$customer->address}}</td>
+                    <td>{{$customer->created_at}}</td>
+                    <td>
+                        <a href="{{ route('customers.edit', $customer) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <form action="{{ route('customers.destroy', $customer) }}" method="post" class="d-inline-block">
+                            <button class="btn btn-danger btn-delete" data-url="{{route('customers.destroy', $customer)}}"><i class="fas fa-trash"></i></button>
+                            <input type="hidden" name="_method" value="delete" />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
-                </tbody>
-            </table>
-            {{ $customers->render() }}
-        </div>
+            </tbody>
+        </table>
+        {{ $customers->render() }}
     </div>
+</div>
 @endsection
 
 @section('js')
-    <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-    <script>
+<script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+<!-- <script>
         $(document).ready(function () {
             $(document).on('click', '.btn-delete', function () {
                 $this = $(this);
@@ -86,5 +88,5 @@
                 })
             })
         })
-    </script>
+    </script> -->
 @endsection

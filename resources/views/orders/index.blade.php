@@ -48,11 +48,11 @@
                     <td>{{ config('settings.currency_symbol') }} {{$order->formattedReceivedAmount()}}</td>
                     <td>
                         @if($order->receivedAmount() == 0)
-                            <span class="badge badge-danger">Not Paid</span>
+                            <span class="badge badge-danger">No Pagada</span>
                         @elseif($order->receivedAmount() < $order->total())
-                            <span class="badge badge-warning">Partial</span>
+                            <span class="badge badge-warning">Debe</span>
                         @elseif($order->receivedAmount() == $order->total())
-                            <span class="badge badge-success">Paid</span>
+                            <span class="badge badge-success">Pagada</span>
                         @elseif($order->receivedAmount() > $order->total())
                             <span class="badge badge-info">Change</span>
                         @endif

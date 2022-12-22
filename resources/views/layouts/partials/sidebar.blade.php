@@ -47,9 +47,21 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
+                    <a href="{{ route('reservations.index') }}" class="nav-link {{ activeSegment('reservations') }}">
+                        <i class="nav-icon fa-solid fa-calendar-check"></i>
+                        <p>Reservaciones</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
                     <a href="{{ route('customers.index') }}" class="nav-link {{ activeSegment('customers') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Clientes</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('employees.index') }}" class="nav-link {{ activeSegment('employees') }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Empleados</p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">

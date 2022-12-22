@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('identification')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('first_name', 20)->nullable();
+            $table->string('last_name', 20)->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('role')->nullable();
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -36,16 +36,17 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->quantity}}</td>
                     <td>
-                        <span
-                            class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{$product->status ? 'Activo' : 'Inactivo'}}</span>
+                        <span class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{$product->status ? 'Activo' : 'Inactivo'}}</span>
                     </td>
                     <td>{{$product->created_at}}</td>
                     <td>{{$product->updated_at}}</td>
                     <td>
-                        <a href="{{ route('products.edit', $product) }}" class="btn btn-primary"><i
-                                class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger btn-delete" data-url="{{route('products.destroy', $product)}}"><i
-                                class="fas fa-trash"></i></button>
+                        <a href="{{ route('products.edit', $product) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <form action="{{ route('products.destroy', $product) }}" method="post" class="d-inline-block">
+                            <button class="btn btn-danger btn-delete" data-url="{{route('products.destroy', $product)}}"><i class="fas fa-trash"></i></button>
+                            <input type="hidden" name="_method" value="delete" />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -58,7 +59,7 @@
 
 @section('js')
 <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-<script>
+<!-- <script>
     $(document).ready(function () {
         $(document).on('click', '.btn-delete', function () {
             $this = $(this);
@@ -89,5 +90,5 @@
             })
         })
     })
-</script>
+</script> -->
 @endsection

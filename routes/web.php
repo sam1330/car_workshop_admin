@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +23,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store');
     Route::resource('products', ProductController::class);
     Route::resource('customers', CustomerController::class);
+    Route::resource('employees', EmployeeController::class);
     Route::resource('orders', OrderController::class);
+    Route::resource('reservations', ReservationController::class);
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
