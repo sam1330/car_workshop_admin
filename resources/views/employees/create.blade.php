@@ -76,7 +76,7 @@
 
             <div class="form-group">
                 <label for="role">Rol</label>
-                <select name="role" class="form-control" value="{{ old('role') }}">
+                <select name="role" class="form-control" value="{{ old('role') }}" id="role">
                     <option value="Admin">Admin</option>
                     <option value="RRHH">RRHH</option>
                     <option value="Mecánico">Mecánico</option>
@@ -88,6 +88,19 @@
                 @enderror
             </div>
 
+            <div class="form-group d-none" id="hability">
+                <label for="role">Especialidad</label>
+                <select name="hability" class="form-control" value="{{ old('hability') }}">
+                    @foreach ($habilities as $hability)
+                    <option value="{{$hability->id}}" class="text-capitalize">{{$hability->name}}</option>
+                    @endforeach
+                </select>
+                @error('employee')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
 
             <button class="btn btn-primary" type="submit">Crear</button>
         </form>
@@ -97,9 +110,17 @@
 
 @section('js')
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-<script>
+<script type="module">
     $(document).ready(function() {
         bsCustomFileInput.init();
+
+        $("#role").on('change', (e) => {
+            if(e.target.value === "Mecánico") {
+                $("#hability").removeClass('d-none');
+            } else if(!$("#hability").hasClass('d-none')) {
+                $("#hability").addClass('d-none');
+            }
+        })
     });
 </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Hability;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,10 +18,10 @@ class EmployeeController extends Controller
     {
         if (request()->wantsJson()) {
             return response(
-                Employee::all()
+                Employee::with(['hability'])->get()
             );
         }
-        $employees = Employee::latest()->paginate(10);
+        $employees = Employee::with(['hability'])->latest()->paginate(10);
         return view('employees.index')->with('employees', $employees);
     }
 
@@ -31,7 +32,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $habilities = Hability::all();
+        return view('employees.create', ['habilities' => $habilities]);
     }
 
     /**
@@ -56,6 +58,7 @@ class EmployeeController extends Controller
             'address' => $request->address,
             'avatar' => $avatar_path,
             'role' => $request->role,
+            'hability_id' => $request->hability,
         ]);
 
         if (!$employee) {

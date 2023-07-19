@@ -15,12 +15,12 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Avatar</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Rol</th>
+                    <th>Especialidad</th>
                     <th>Creado</th>
                     <th>Acciones</th>
                 </tr>
@@ -29,14 +29,12 @@
                 @foreach ($employees as $employee)
                 <tr>
                     <td>{{$employee->id}}</td>
-                    <td>
-                        <img width="50" src="{{$employee->getAvatarUrl()}}" alt="">
-                    </td>
                     <td>{{$employee->first_name}}</td>
                     <td>{{$employee->last_name}}</td>
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->phone}}</td>
                     <td>{{$employee->role}}</td>
+                    <td>{{$employee->hability->name}}</td>
                     <td>{{$employee->created_at}}</td>
                     <td>
                         <a href="{{ route('employees.edit', $employee) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>

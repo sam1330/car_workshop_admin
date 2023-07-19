@@ -12,10 +12,13 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testBasicTest(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/api/v1/reservations');
 
         $response->assertStatus(200);
+        $this->assertDatabaseHas('reservations', [
+            "type" => "servicio_al_cliente",
+        ]);
     }
 }

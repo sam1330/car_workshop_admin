@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return redirect('/admin');
+    // return redirect('/admin');
+    return response()->json(["message" => "hola"]);
 });
 
 Auth::routes();

@@ -18,10 +18,21 @@ class Employee extends Model
         'address',
         'avatar',
         'role',
+        'hability_id'
     ];
 
     public function getAvatarUrl()
     {
         return Storage::url($this->avatar);
     }
+
+    public function hability()
+    {
+        return $this->belongsTo(Hability::class);
+    }
+
+    // public function errorTypes()
+    // {
+    //     return $this->hasManyThrough();
+    // }
 }
