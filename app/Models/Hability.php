@@ -13,6 +13,6 @@ class Hability extends Model
 
     public function errorTypes()
     {
-        return $this-> hasMany(HabilityErrorType::class);
+        return $this->hasMany(HabilityErrorType::class);
     }
 }
