@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: pos
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        image: 'pos'
+        ports:
+            - "8000:80" # Map port 8000 of the host machine to port 80 of the container (Laravel default)
+        volumes:
+            - .:/var/www/html  # Mount current directory to /var/www/app in the container
+        environment:
+            - APP_ENV=local  # Set environment variable for your Laravel app
+        networks:
+            - pos_network
+
+    db:
+        image: 'mysql/mysql-server:8.0'
+        container_name: pos_db
+        restart: always
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - mysql:/var/lib/mysql
+        networks:
+            - pos_network
+    
+networks:
+    pos_network:
+        name: pos_network
+        driver: bridge
+
+volumes:
+  mysql:
+    name: pos_mysql
+    driver: local
+
+    # Add additional services like Redis, Mailhog, etc. if needed
