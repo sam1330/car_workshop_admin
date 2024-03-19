@@ -29,3 +29,5 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get("/error-types", [ErrorTypeController::class, 'index']);
 });
+
+
