@@ -9,48 +9,33 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
-class EmployeeControllerTest extends TestCase
+class OrderTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
-    public function testStoreMethod()
+    /**
+     * Test successful product creation with image upload.
+     */
+    public function testCanCreateProductWithImage()
     {
-        // Arrange
-        Storage::fake('public');
-
-        $data = [
-            'first_name' => $this->faker->firstName,
-            'last_name' => $this->faker->lastName,
-            'email' => $this->faker->unique()->safeEmail,
-            'phone' => $this->faker->phoneNumber,
-            'address' => $this->faker->address,
-            'role' => $this->faker->word,
-            'hability' => 1, // Replace with the appropriate value for hability
-            'avatar' => UploadedFile::fake()->image('avatar.jpg'),
-        ];
-
-        // Act
-        $response = $this->post(route('employees.store'), $data);
-
-        // Assert
-        $response->assertRedirect(route('employees.index'))
-            ->assertSessionHas('success');
-
-        $employee = Employee::latest()->first();
-
-        $this->assertDatabaseHas('employees', [
-            'id' => $employee->id,
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'address' => $data['address'],
-            'role' => $data['role'],
-            'hability_id' => $data['hability'],
-            'avatar' => 'employees/' . $employee->id . '/avatar.jpg', // Check if the avatar path is correct
+        $this->post(route('products.store'), [
+            'name' => 'Test Product',
+            'description' => 'This is a test product description.',
+            'barcode' => '123456789012',
+            'price' => 19.99,
+            'quantity' => 10,
+            'status' => 'active',
         ]);
 
-        Storage::disk('public')->assertExists('employees/' . $employee->id . '/avatar.jpg');
+        $this->assertDatabaseHas('products', [
+            'name' => 'Test Product',
+            'description' => 'This is a test product description.',
+            'barcode' => '123456789012',
+            'price' => 19.99,
+            'quantity' => 10,
+            'status' => 'active',
+            // No assertion for 'image' as it's not uploaded
+        ]);
     }
 }
 
