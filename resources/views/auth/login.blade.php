@@ -59,7 +59,7 @@
         </div>
         <!-- /.col -->
         <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" id="btn-login" class="btn btn-primary btn-block">Login</button>
         </div>
         <!-- /.col -->
     </div>

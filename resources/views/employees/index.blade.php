@@ -34,7 +34,7 @@
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->phone}}</td>
                     <td>{{$employee->role}}</td>
-                    <td>{{$employee->hability->name}}</td>
+                    <td>{{optional($employee->hability)->name}}</td>
                     <td>{{$employee->created_at}}</td>
                     <td>
                         <a href="{{ route('employees.edit', $employee) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>

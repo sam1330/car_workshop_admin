@@ -5,10 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Customer;
 use App\Models\Employee;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class EmployeeTest extends TestCase
 {
@@ -45,6 +42,7 @@ class EmployeeTest extends TestCase
             // Agrega más verificaciones según sea necesario
         ]);
     }
+
     /** @test */
     public function testItCannotCreateEmployeeWithoutFirstName()
     {
